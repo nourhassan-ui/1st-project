@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Odoo18",
+            "type": "python",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "python": "C:\\odoo 18\\python\\python.exe",
+            "program": "C:\\odoo 18\\server\\odoo-bin",
+            "args": [
+                "--config=${workspaceFolder}\\odoo.conf"
+            ],
+            "cwd": "${workspaceFolder}",
+            "justMyCode": false
+        }
+    ]
+}

@@ -1,0 +1,85 @@
+<odoo>
+    <data>
+        <record id="custom_crm_inherit_form" model="ir.ui.view">
+            <field name="name">custom.crm.inherit.form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="make_commit"
+                            invisible="is_commit"
+                            type="object"
+                            string="Commit"
+                    />
+                    <button name="make_un_commit"
+                            invisible="not is_commit"
+                            type="object"
+                            string="Un commit"
+                            groups="custom_crm.group_can_control_committed_opportunities"/>
+                </xpath>
+                <xpath expr="//button[@name='toggle_active']" position="attributes">
+                    <attribute name="groups">custom_crm.group_can_restore_opportunities</attribute>
+                </xpath>
+                <xpath expr="//div[hasclass('oe_title')]/h2/div[1]/div[1]/div[1]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//div[hasclass('oe_title')]/h2/div[1]/div[1]/span[1]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//div[hasclass('oe_title')]/h2/div[1]/div[1]/span[2]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//div[hasclass('oe_title')]/h2/div[2]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="is_commit" string="Committed" widget="boolean_toggle"/>
+                    <field name="is_offer_stage" invisible="True"/>
+                    <field name="id"  />
+                </xpath>
+
+
+                <xpath expr="//field[@name='expected_revenue']" position="attributes">
+                    <attribute name="readonly">is_offer_stage</attribute>
+                </xpath>
+                <xpath expr="//field[@name='date_deadline']" position="attributes">
+                    <attribute name="readonly">is_offer_stage</attribute>
+                </xpath>
+
+
+
+
+
+            </field>
+        </record>
+
+        <record id="custom_crm_search_view_inherit" model="ir.ui.view">
+            <field name="name">custom.crm.search.view.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="is_commit"/>
+                </xpath>
+                <xpath expr="//filter[@name='assigned_to_me']" position="after">
+                    <filter string="Committed" name="is_commit_filter" domain="[('is_commit', '=', True)]" help="Opportunities that are committed"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="custom_crm_inherit_kanban" model="ir.ui.view">
+            <field name="name">custom.crm.inherit.kanban</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='priority']" position="after">
+                    <field name="is_commit"/>
+                </xpath>
+                <xpath expr="//templates/t[@t-name='card']/footer/field[@name='user_id']" position="before">
+                    <span class="o_text_overflow" style="padding:5px;border-radius:25px;background-color:lightgreen;" invisible="not is_commit">Committed</span>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

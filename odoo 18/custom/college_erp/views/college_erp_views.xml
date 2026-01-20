@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree View -->
+    <record id="view_college_erp_model_tree" model="ir.ui.view">
+        <field name="name">college_erp.model.tree</field>
+        <field name="model">college_erp.model</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_college_erp_model_form" model="ir.ui.view">
+        <field name="name">college_erp.model.form</field>
+        <field name="model">college_erp.model</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_college_erp_model" model="ir.actions.act_window">
+        <field name="name">College ERP Model</field>
+        <field name="res_model">college_erp.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_college_erp_root" name="College ERP"/>
+    <menuitem id="menu_college_erp_model"
+              name="College ERP Model"
+              parent="menu_college_erp_root"
+              action="action_college_erp_model"/>
+</odoo>

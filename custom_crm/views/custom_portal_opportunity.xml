@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="custom_portal_my_opportunity" inherit_id="website_crm_partner_assign.portal_my_opportunity">
+            <xpath expr="//t/div[1]/div[1]/div[1]/button" position="replace">
+                <span t-field="stage.name" t-attf-class="btn btn-sm px-2 opp-stage-button #{'btn-secondary' if opportunity.stage_id.name != stage.name else 'btn-primary disabled'}"/>
+            </xpath>
+            <xpath expr="//t/div[2]/div[1]/div[1]/button" position="attributes">
+                <attribute name="style">display:none !important;</attribute>
+            </xpath>
+            <xpath expr="//t/div[2]/div[2]/div[1]/button" position="attributes">
+                <attribute name="style">display:none !important;</attribute>
+            </xpath>
+        </template>
+
+        <template id="custom_portal_my_home_lead" inherit_id="website_crm_partner_assign.portal_my_home_lead">
+            <xpath expr="//div[@id='portal_vendor_category']/t[2]"  position="replace"/>
+        </template>
+
+        <template id="custom_portal_my_lead" inherit_id="website_crm_partner_assign.portal_my_lead">
+            <xpath expr="//t/div[2]/a[1]"  position="attributes">
+                <attribute name="style">display:none !important;</attribute>
+            </xpath>
+            <xpath expr="//t/div[2]/a[2]"  position="attributes">
+                <attribute name="style">display:none !important;</attribute>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="model_college_erp_model" model="ir.model">
+        <field name="model">college_erp.model</field>
+    </record>
+    <record id="model_college_erp_faculty" model="ir.model">
+        <field name="model">college_erp.faculty</field>
+    </record>
+    <record id="model_college_erp_course" model="ir.model">
+        <field name="model">college_erp.course</field>
+    </record>
+    <record id="model_college_erp_student" model="ir.model">
+        <field name="model">college_erp.student</field>
+    </record>
+</odoo>

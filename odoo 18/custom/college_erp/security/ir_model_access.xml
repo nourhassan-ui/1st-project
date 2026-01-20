@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="access_college_erp_model_user" model="ir.model.access">
+        <field name="name">access.college_erp.model.user</field>
+        <field name="model_id" ref="model_college_erp_model"/>
+        <field name="group_id" ref="base.group_user"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+
+    <record id="access_college_erp_faculty_user" model="ir.model.access">
+        <field name="name">access.college_erp.faculty.user</field>
+        <field name="model_id" ref="model_college_erp_faculty"/>
+        <field name="group_id" ref="base.group_user"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+
+    <record id="access_college_erp_course_user" model="ir.model.access">
+        <field name="name">access.college_erp.course.user</field>
+        <field name="model_id" ref="model_college_erp_course"/>
+        <field name="group_id" ref="base.group_user"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+
+    <record id="access_college_erp_student_user" model="ir.model.access">
+        <field name="name">access.college_erp.student.user</field>
+        <field name="model_id" ref="model_college_erp_student"/>
+        <field name="group_id" ref="base.group_user"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+</odoo>
